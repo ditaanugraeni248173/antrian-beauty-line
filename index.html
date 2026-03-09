@@ -92,7 +92,7 @@
       .card h2 {
         margin-top: 10px;
         margin-bottom: 40px;
-        color: #9f2941;
+        color: #d46476;
         text-align: center;
       }
       .form {
@@ -114,12 +114,21 @@
         border: 1px solid #d86b83;
         outline: none;
       }
-      select {
+      .dropdown {
         width: 100%;
         padding: 10px;
         border-radius: 8px;
         border: 1px solid #d86b83;
         outline: none;
+        background-color: #ffffff;
+      }
+      .dropdown option {
+        border-radius: 8px;
+        background-color: #ffffff;
+        color: #000;
+      }
+      .dropdown option:hover {
+        background-color: #9c3f3f;
       }
 
       a {
@@ -186,7 +195,7 @@
 
           <div class="form">
             <label>Loket</label>
-            <select name="dropdown" id="dropdown">
+            <select class="dropdown">
               <option value="">Pilih Treatment</option>
               <option value="">Facial Treatment</option>
               <option value="">Laser Treatment</option>
