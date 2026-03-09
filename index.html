@@ -84,7 +84,7 @@
       .card {
         margin: auto;
         width: 95%;
-        padding: 15px 40px;
+        padding: 15px 50px;
         border-radius: 10px;
         background-color: #dd899a;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -92,7 +92,7 @@
       .card h2 {
         margin-top: 10px;
         margin-bottom: 40px;
-        color: #d46476;
+        color: #9f2941;
         text-align: center;
       }
       .form {
@@ -114,21 +114,12 @@
         border: 1px solid #d86b83;
         outline: none;
       }
-      .dropdown {
+      select {
         width: 100%;
         padding: 10px;
         border-radius: 8px;
         border: 1px solid #d86b83;
         outline: none;
-        background-color: #ffffff;
-      }
-      .dropdown option {
-        border-radius: 8px;
-        background-color: #ffffff;
-        color: #000;
-      }
-      .dropdown option:hover {
-        background-color: #9c3f3f;
       }
 
       a {
@@ -145,10 +136,13 @@
         cursor: pointer;
         transition: 0.3s;
       }
+      a:hover {
+        background: #d86b83;
+      }
       .submit {
         text-align: center;
-        margin-top: 40px;
-        margin-bottom: 10px;
+        margin-top: 100px;
+        margin-bottom: 20px;
       }
       .submit-btn {
         font-family: "poppins";
@@ -176,7 +170,7 @@
           <img src="BEAUTY LINE logo.png" alt="logo" />
           <span>Beauty Line</span>
         </div>
-        <a href="index.html" class="button"> Ambil Antrian </a>
+        <a href="#" class="button"> Ambil Antrian </a>
         <a href="daftar_antri.html" class="button"> Daftar Antrian </a>
         <a href="kartu_antrian.html" class="button"> Kartu Antrian </a>
         <div class="gmbar-kecil">
@@ -195,7 +189,7 @@
 
           <div class="form">
             <label>Loket</label>
-            <select class="dropdown">
+            <select name="dropdown" id="dropdown">
               <option value="">Pilih Treatment</option>
               <option value="">Facial Treatment</option>
               <option value="">Laser Treatment</option>
