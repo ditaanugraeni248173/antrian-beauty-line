@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f3edee;
+        display: flex;
+        height: 100vh;
+        font-family: "poppins";
+      }
+      .container {
+        display: flex;
+        width: 100%;
+      }
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        padding: 30px 20px;
+        background-color: #f3cfd6;
+        gap: 20px;
+      }
+      .sidebar button {
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #dd899a;
+        color: white;
+        cursor: pointer;
+        transform: 0.3s;
+      }
+      .sidebar button:hover {
+        background-color: #9f2941;
+      }
+      .logo {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo span {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 600;
+        color: #9f2941;
+        font-size: 20px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="logo">
+          <img src="BEAUTY LINE logo.png" alt="logo" />
+          <span>Beauty Line</span>
+        </div>
+        <a href="index.html">
+          <button>Ambil Antrian</button>
+        </a>
+        <a href="daftar_antri.html">
+          <button>Daftar Antrian</button>
+        </a>
+        <button>Kartu Antrian</button>
+      </div>
+    </div>
+  </body>
+</html>

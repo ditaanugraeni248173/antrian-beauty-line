@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #f6e3e7;
+  background-image: url(Group\ 40.png);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #f3cfd6;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #c75c73;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.sidebar button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #e88ca0;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar button:hover {
+  background: #d86b83;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #f3b6c1;
+  width: 450px;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 30px;
+  color: #b84d64;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #9b3f55;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d86b83;
+  outline: none;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #e88ca0;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #d86b83;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.success {
+  color: green;
+  margin-top: 15px;
+}
