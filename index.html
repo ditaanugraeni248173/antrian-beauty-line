@@ -37,19 +37,7 @@
         width: 250px;
         padding: 20px 20px;
         background-color: #f3cfd6;
-        gap: 20px;
-      }
-      .sidebar button {
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        background: #dd899a;
-        color: white;
-        cursor: pointer;
-        transform: 0.3s;
-      }
-      .sidebar button:hover {
-        background-color: #9f2941;
+        gap: 15px;
       }
       .logo {
         text-align: center;
@@ -114,17 +102,45 @@
         border: 1px solid #d86b83;
         outline: none;
       }
-      select {
-        width: 100%;
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid #d86b83;
-        outline: none;
+      .dropdown {
+        width: 250px;
+        position: relative;
+        font-family: sans-serif;
       }
 
+      .dropdown-btn {
+        padding: 10px;
+        border: 1px solid #d86b83;
+        border-radius: 8px;
+        cursor: pointer;
+        background: white;
+      }
+
+      .dropdown-menu {
+        list-style: none;
+        padding: 0;
+        margin: 5px 0 0 0;
+        border: 1px solid #d86b83;
+        border-radius: 8px;
+        display: none;
+        background: white;
+        position: absolute;
+        width: 100%;
+      }
+
+      .dropdown-menu li {
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .dropdown-menu li:hover {
+        background: #d86b83;
+        color: white;
+        transform: translateX(5px);
+      }
       a {
         font-family: "poppins";
-        margin-top: 20px;
         text-decoration: none;
         text-align: center;
         padding: 10px;
@@ -137,7 +153,7 @@
         transition: 0.3s;
       }
       a:hover {
-        background: #d86b83;
+        background: #97102d;
       }
       .submit {
         text-align: center;
@@ -189,12 +205,12 @@
 
           <div class="form">
             <label>Loket</label>
-            <select name="dropdown" id="dropdown">
-              <option value="">Pilih Treatment</option>
-              <option value="">Facial Treatment</option>
-              <option value="">Laser Treatment</option>
-              <option value="">Skin Booster</option>
-            </select>
+            <div class="dropdown-btn">Pilih Treatment</div>
+            <ul class="dropdown-menu">
+              <li>Facial Treatment</li>
+              <li>Laser Treatment</li>
+              <li>Skin Booster</li>
+            </ul>
           </div>
           <div class="submit">
             <a href="kartu_antrian.html" class="submit-btn">Ambil Antrian </a>
