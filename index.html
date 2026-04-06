@@ -102,12 +102,15 @@
         border: 1px solid #d86b83;
         outline: none;
       }
+      body {
+        background: linear-gradient(to bottom, #cfe8ff, #7ec8e3);
+        font-family: sans-serif;
+      }
       .dropdown {
         width: 250px;
         position: relative;
         font-family: sans-serif;
       }
-
       .dropdown-btn {
         padding: 10px;
         border: 1px solid #d86b83;
@@ -116,28 +119,32 @@
         background: white;
       }
 
-      .dropdown-menu {
-        list-style: none;
-        padding: 0;
-        margin: 5px 0 0 0;
-        border: 1px solid #d86b83;
-        border-radius: 8px;
-        display: none;
+      .menu {
         background: white;
+        padding: 10px 20px;
+        width: 180px;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+      }
+      .option {
+        list-style: none;
+        padding: 10px 0;
+        margin-top: 10px;
+        background: white;
+        border-radius: 10px;
+        display: none;
         position: absolute;
         width: 100%;
       }
-
-      .dropdown-menu li {
-        padding: 10px;
-        cursor: pointer;
-        transition: all 0.2s ease;
+      .option li {
+        padding: 10px 20px;
       }
-
-      .dropdown-menu li:hover {
-        background: #d86b83;
-        color: white;
-        transform: translateX(5px);
+      .option li:hover {
+        background: #f0f0f0;
+      }
+      .menu:hover .option {
+        display: block;
       }
       a {
         font-family: "poppins";
@@ -205,12 +212,18 @@
 
           <div class="form">
             <label>Loket</label>
-            <div class="dropdown-btn">Pilih Treatment</div>
-            <ul class="dropdown-menu">
-              <li>Facial Treatment</li>
-              <li>Laser Treatment</li>
-              <li>Skin Booster</li>
-            </ul>
+            <div class="dropdown-btn">
+              <ul class="dropdown">
+                <li class="menu">
+                  Pilih Treatment
+                  <ul class="option">
+                    <li>Facial Treatment</li>
+                    <li>Laser Treatment</li>
+                    <li>Skin Booster</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="submit">
             <a href="kartu_antrian.html" class="submit-btn">Ambil Antrian </a>
