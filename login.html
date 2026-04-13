@@ -6,6 +6,242 @@
     <title>Document</title>
   </head>
   <body>
-    <p>SEE YOU TOMORROW</p>
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            background-color: #f3edee;
+            display: flex;
+            height: 100vh;
+            font-family: "poppins";
+            background-image: url("img/Group41.png");
+            background-size: cover;
+            background-position-x: 100px;
+            background-position-y: 10px;
+          }
+          .container {
+            display: flex;
+            width: 100%;
+          }
+
+          .sidebar {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            padding: 20px 20px;
+            background-color: #f3cfd6;
+            gap: 15px;
+          }
+          .logo {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .logo span {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: 600;
+            color: #9f2941;
+            font-size: 20px;
+          }
+          img {
+            width: 150px;
+            height: 150px;
+          }
+          .gmbar-kecil img {
+            width: 200px;
+            height: auto;
+          }
+          .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            margin-top: 10px;
+          }
+          .card {
+            margin: auto;
+            width: 95%;
+            padding: 15px 50px;
+            border-radius: 10px;
+            background-color: #dd899a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+          }
+          .card h2 {
+            margin-top: 10px;
+            margin-bottom: 40px;
+            color: #9f2941;
+            text-align: center;
+          }
+          .form {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            margin-bottom: 20px;
+            text-align: justify;
+          }
+          label {
+            display: block;
+            margin-bottom: 8px;
+            color: #9b3f55;
+            font-weight: 600;
+          }
+          input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #d86b83;
+            outline: none;
+          }
+          body {
+            background-color: #fff9fa;
+            font-family: sans-serif;
+          }
+          .dropdown {
+            width: 200px;
+            position: relative;
+            font-family: sans-serif;
+          }
+          .dropdown-btn {
+            padding: 10px;
+            border: 1px solid #d86b83;
+            border-radius: 8px;
+            cursor: pointer;
+            background: white;
+          }
+
+          .menu {
+            list-style: none;
+            background: white;
+            padding: 10px 20px;
+            width: 250px;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+          }
+          .option {
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 10px;
+            background: white;
+            border-radius: 10px;
+            display: none;
+            position: absolute;
+            width: 100%;
+          }
+          .option li {
+            padding: 10px 20px;
+          }
+          .option li:hover {
+            background: #f0f0f0;
+          }
+          .menu:hover .option {
+            display: block;
+          }
+          a {
+            font-family: "poppins";
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            background: #e88ca0;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+          }
+          a:hover {
+            background: #97102d;
+          }
+          .submit {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 20px;
+          }
+          .submit-btn {
+            font-family: "poppins";
+            margin-top: 20px;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            background: #d3798d;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+          }
+          .submit-btn:hover {
+            background: #d86b83;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="sidebar">
+            <div class="logo">
+              <img src="img/BEAUTY-LINE-logo.png" alt="logo" />
+              <span>Beauty Line</span>
+            </div>
+            <a href="#" class="button"> Ambil Antrian </a>
+            <a href="daftar_antri.html" class="button"> Daftar Antrian </a>
+            <a href="kartu_antrian.html" class="button"> Kartu Antrian </a>
+            <div class="gmbar-kecil">
+              <img src="img/sidebar.png" alt="" />
+            </div>
+          </div>
+
+          <!-- main -->
+          <div class="main">
+            <div class="card">
+              <h2>Form Ambil Antrian</h2>
+              <div class="form">
+                <label>Nomor Telepon</label>
+                <input type="text" id="phone" />
+              </div>
+
+              <div class="form">
+                <label>Loket</label>
+                <div class="dropdown-btn">
+                  <ul class="dropdown">
+                    <li class="menu">
+                      Pilih Treatment
+                      <ul class="option">
+                        <li>Facial Treatment</li>
+                        <li>Laser Treatment</li>
+                        <li>Skin Booster</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="submit">
+                <a href="kartu_antrian.html" class="submit-btn"
+                  >Ambil Antrian
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
   </body>
 </html>

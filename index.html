@@ -10,224 +10,111 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
+    />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
       body {
-        background-color: #f3edee;
-        display: flex;
-        height: 100vh;
-        font-family: "poppins";
-        background-image: url("img/Group41.png");
-        background-size: cover;
-        background-position-x: 100px;
-        background-position-y: 10px;
+        margin: 0;
+        font-family: "Poppins";
       }
       .container {
         display: flex;
-        width: 100%;
+        height: 100vh;
       }
 
+      /* sidebar */
       .sidebar {
         display: flex;
         flex-direction: column;
         width: 250px;
-        padding: 20px 20px;
+        padding: 20px;
         background-color: #f3cfd6;
-        gap: 15px;
+        position: relative;
+        gap: 15;
       }
       .logo {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .logo span {
-        font-family: "Times New Roman", Times, serif;
-        font-weight: 600;
-        color: #9f2941;
-        font-size: 20px;
-      }
-      img {
         width: 150px;
-        height: 150px;
+        margin: 20px;
       }
-      .gmbar-kecil img {
-        width: 200px;
-        height: auto;
+      .sidebar-decor {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
       }
-
-      .main {
+      .icon {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex: 1;
-        margin-top: 10px;
-      }
-      .card {
-        margin: auto;
-        width: 95%;
-        padding: 15px 50px;
-        border-radius: 10px;
-        background-color: #dd899a;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      }
-      .card h2 {
-        margin-top: 10px;
-        margin-bottom: 40px;
-        color: #9f2941;
-        text-align: center;
-      }
-      .form {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        margin-bottom: 20px;
-        text-align: justify;
-      }
-      label {
-        display: block;
-        margin-bottom: 8px;
-        color: #9b3f55;
-        font-weight: 600;
-      }
-      input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid #d86b83;
-        outline: none;
-      }
-      body {
-        background: linear-gradient(to bottom, #cfe8ff, #7ec8e3);
-        font-family: sans-serif;
-      }
-      .dropdown {
-        width: 250px;
+        gap: 10px;
+        background-color: #e88ca0;
+        padding: 15px;
+        margin: 15px;
         position: relative;
-        font-family: sans-serif;
-      }
-      .dropdown-btn {
-        padding: 10px;
-        border: 1px solid #d86b83;
-        border-radius: 8px;
-        cursor: pointer;
-        background: white;
-      }
-
-      .menu {
-        background: white;
-        padding: 10px 20px;
-        width: 180px;
-        border-radius: 10px;
-        cursor: pointer;
-        position: relative;
-      }
-      .option {
-        list-style: none;
-        padding: 10px 0;
-        margin-top: 10px;
-        background: white;
-        border-radius: 10px;
-        display: none;
-        position: absolute;
-        width: 100%;
-      }
-      .option li {
-        padding: 10px 20px;
-      }
-      .option li:hover {
-        background: #f0f0f0;
-      }
-      .menu:hover .option {
-        display: block;
+        color: white;
       }
       a {
-        font-family: "poppins";
         text-decoration: none;
-        text-align: center;
-        padding: 10px;
-        width: 100%;
-        border: none;
-        border-radius: 8px;
-        background: #e88ca0;
         color: white;
-        cursor: pointer;
-        transition: 0.3s;
       }
-      a:hover {
-        background: #97102d;
-      }
-      .submit {
-        text-align: center;
-        margin-top: 100px;
-        margin-bottom: 20px;
-      }
-      .submit-btn {
+
+      /* main */
+      .main {
+        flex: 1;
         font-family: "poppins";
-        margin-top: 20px;
-        text-decoration: none;
-        text-align: center;
-        padding: 10px;
-        width: 100%;
-        border: none;
-        border-radius: 8px;
-        background: #d3798d;
-        color: white;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      .submit-btn:hover {
-        background: #d86b83;
+        background-image: url("img/Group91.png");
+        background-repeat: repeat;
+        background-size: 100vh;
       }
     </style>
   </head>
   <body>
     <div class="container">
+      <!-- sidebar -->
       <div class="sidebar">
-        <div class="logo">
-          <img src="img/BEAUTY-LINE-logo.png" alt="logo" />
-          <span>Beauty Line</span>
-        </div>
-        <a href="#" class="button"> Ambil Antrian </a>
-        <a href="daftar_antri.html" class="button"> Daftar Antrian </a>
-        <a href="kartu_antrian.html" class="button"> Kartu Antrian </a>
-        <div class="gmbar-kecil">
-          <img src="img/sidebar.png" alt="" />
+        <img src="img/vectorlogo.png" class="logo" />
+        <img src="img/sidebar.png" class="sidebar-decor" />
+        <div class="menu">
+          <div class="icon">
+            <i class="hgi hgi-stroke hgi-user"></i>
+            <a href="index.html">Ambil Antrian</a>
+          </div>
+          <div class="icon">
+            <i class="hgi hgi-stroke hgi-list-view"></i>
+            <a href="kartu_antrian.html">Daftar Antrian</a>
+          </div>
+          <div class="icon">
+            <i class="hgi hgi-stroke hgi-ticket-01"></i>
+            <a href="daftar_antri.html">Kartu Antrian</a>
+          </div>
         </div>
       </div>
 
-      <!-- main -->
+      <!-- Main -->
       <div class="main">
-        <div class="card">
-          <h2>Form Ambil Antrian</h2>
-          <div class="form">
+        <!-- Form -->
+        <div class="form">
+          <h2>Ambil Anti</h2>
+          <form method="post">
             <label>Nomor Telepon</label>
-            <input type="text" id="phone" />
-          </div>
+            <input
+              type="text"
+              id="phone"
+              placeholder="Masukkan Nomor Telepon"
+            />
 
-          <div class="form">
             <label>Loket</label>
-            <div class="dropdown-btn">
-              <ul class="dropdown">
-                <li class="menu">
-                  Pilih Treatment
-                  <ul class="option">
-                    <li>Facial Treatment</li>
-                    <li>Laser Treatment</li>
-                    <li>Skin Booster</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="submit">
-            <a href="kartu_antrian.html" class="submit-btn">Ambil Antrian </a>
-          </div>
+            <select name="loket" id="">
+              <option>Pilih Loket</option>
+              <option>Facial Treatment</option>
+              <option>Laser Treatment</option>
+              <option>Skin Booster</option>
+            </select>
+
+            <button type="submit" name="Ambil">Ambil Antrian</button>
+          </form>
         </div>
       </div>
     </div>
