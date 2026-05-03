@@ -1,19 +1,56 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "admin_antrian");
+$conn = mysqli_connect("127.0.0.1", "root", "", "admin_antrian");
 
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
-    exit;
+}
+
+if(isset($_POST['take'])){
+
+  $telp = $_POST['telp'];
+  $loket = $_POST['loket'];
+
+  $service_map = [
+    "Facial Treatment" => A001,
+    "Laser Treatment" => B001,
+    "Skin Booster" => C001
+  ];
+
+  if(empty($loket) || !isset($service_map[$loket])){
+    die("Loket tidak valid");
+  }
+
+  $service_id = $service_map[$loket];
+  $today = date('Y-m-d');
+
+  $query = mysqli_query($conn, "
+    SELECT MAX(queue_number) as last
+    FROM queues
+    WHERE service_id = $service_id
+    AND appointment_date = '$today'
+  ") or die(mysqli_error($conn));
+
+  $data = mysqli_fetch_assoc($query);
+  $last = $data['last'] ?? 0;
+  $next = $last + 1;
+
+  mysqli_query($conn, "
+    INSERT INTO queues
+    (service_id, queue_number, appointment_date, status, visitor_phone, created_at, updated_at)
+    VALUES
+    ($service_id, $next, '$today', 'waiting', '$telp', NOW(), NOW())
+  ") or die(mysqli_error($conn));
+
+  header("Location: nomor-antrian.php?nomor=$next&telp=$telp&loket=$loket");
+  exit;
 }
 ?>
-
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ambil Antrian</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -139,7 +176,6 @@ if (!$conn) {
     </style>
   </head>
   <body>
-    <div class="container">
       <!-- sidebar -->
       <div class="sidebar">
         <img src="img/vectorlogo.png" class="logo" />
@@ -147,7 +183,7 @@ if (!$conn) {
         <div class="menu">
           <div class="icon">
             <i class="hgi hgi-stroke hgi-user"></i>
-            <a href="index.html">Ambil Antrian</a>
+            <a href="index.php">Ambil Antrian</a>
           </div>
           <div class="icon">
             <i class="hgi hgi-stroke hgi-list-view"></i>
@@ -165,9 +201,9 @@ if (!$conn) {
         <!-- Form -->
         <div class="form">
           <h2>Ambil Antrian</h2>
-          <form method="post">
+          <form method="POST">
             <label>Nomor Telepon</label>
-            <input type="text" placeholder="Masukkan Nomor Telepon" />
+            <input type="text" name="telp" placeholder="Masukkan Nomor Telepon" />
 
             <label>Loket</label>
             <select name="loket" id="">
@@ -177,7 +213,7 @@ if (!$conn) {
               <option>Skin Booster</option>
             </select>
 
-            <button type="submit">Ambil Antrian</button>
+            <button type="submit" name="take">Ambil Antrian</button>
           </form>
         </div>
       </div>

@@ -1,3 +1,9 @@
+<?php
+$nomor = $_GET['nomor'] ?? '-';
+$telp = $_GET['telp'] ?? '-';
+$loket = $_GET['loket'] ?? '-';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -71,8 +77,22 @@
         background-size: 100vh;
       }
       /* hover effect */
-      .form button:hover {
+      .bttn:hover {
         background-color: #d96f86;
+      }
+
+      /* button */
+      .bttn {
+        width: 30%;
+        padding: 12px;
+        justify-content: center;
+        background-color: #e88ca0;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
       }
     </style>
   </head>
@@ -97,7 +117,26 @@
           </div>
         </div>
       </div>
-      <div class="main"></div>
+      <div class="main">
+        <!-- header -->
+        <div class="header">
+          <h1>facial treatment</h1>
+        </div>
+        <!-- kartu antrian -->
+        <div class="card-container">
+          <div class="nomor"><?php echo $nomor; ?></div>
+
+          <div class="info">
+            <div>
+              Nomor Telepon : <?php echo $telp; ?> <br />
+              Loket : <?php echo $loket; ?>
+            </div>
+          </div>
+        </div>
+        <!-- button -->
+
+        <button class="bttn">ambil antrian baru</button>
+      </div>
     </div>
   </body>
 </html>
