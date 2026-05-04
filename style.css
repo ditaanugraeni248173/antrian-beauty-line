@@ -1,6 +1,7 @@
 :root {
   --primary: #e88ca0;
   --secondary: #f3cfd6;
+  --accent: #f7a3b5;
   --hover-1: #97102d;
   --text: #ffffff;
 }
@@ -101,7 +102,7 @@ a {
   width: 30%;
   padding: 12px;
   justify-content: center;
-  background-color: var(--primary);
+  background-color: var(--accent);
   border: none;
   border-radius: 10px;
   color: var(--text);

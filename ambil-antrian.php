@@ -5,6 +5,7 @@ $query = "SELECT * FROM services";
 
 $result = $conn->query($query);
 
+
 $row = $result->fetch_all();
 ?>
 
@@ -53,20 +54,21 @@ $row = $result->fetch_all();
               <!-- Form -->
         <div class="form">
           <h2>Ambil Antrian</h2>
-          <form method="post">
-            <label>Nomor Telepon</label>
-            <input type="text" placeholder="Masukkan Nomor Telepon" />
 
+          <!-- form -->
+          <form action="action-ambil-antrian.php" method="post">
+            <label>Nomor Telepon</label>
+            <input name="no_telp" placeholder="Masukkan Nomor Telepon" />
             <label>Loket</label>
-            <select name="loket" id="opsi">
+            <select name="layanan">
               <?php
-            foreach($row as $opsi){
-           echo "<option>".$opsi[1]."</option>";
-        }
-          ?>
+              foreach($row as $opsi){
+                echo "<option value='".$opsi[0]."'>".$opsi[1]."</option>";
+               }
+              ?>
             </select>
 
-            <button type="submit">Ambil Antrian</button>
+            <button type="submit" onclick="window.location.href='nomor-antrian.html'">Ambil Antrian</button>
           </form>
         </div>
       </div>
