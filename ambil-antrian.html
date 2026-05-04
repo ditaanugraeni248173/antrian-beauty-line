@@ -1,56 +1,9 @@
-<?php
-$conn = mysqli_connect("127.0.0.1", "root", "", "admin_antrian");
-
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
-
-if(isset($_POST['take'])){
-
-  $telp = $_POST['telp'];
-  $loket = $_POST['loket'];
-
-  $service_map = [
-    "Facial Treatment" => A001,
-    "Laser Treatment" => B001,
-    "Skin Booster" => C001
-  ];
-
-  if(empty($loket) || !isset($service_map[$loket])){
-    die("Loket tidak valid");
-  }
-
-  $service_id = $service_map[$loket];
-  $today = date('Y-m-d');
-
-  $query = mysqli_query($conn, "
-    SELECT MAX(queue_number) as last
-    FROM queues
-    WHERE service_id = $service_id
-    AND appointment_date = '$today'
-  ") or die(mysqli_error($conn));
-
-  $data = mysqli_fetch_assoc($query);
-  $last = $data['last'] ?? 0;
-  $next = $last + 1;
-
-  mysqli_query($conn, "
-    INSERT INTO queues
-    (service_id, queue_number, appointment_date, status, visitor_phone, created_at, updated_at)
-    VALUES
-    ($service_id, $next, '$today', 'waiting', '$telp', NOW(), NOW())
-  ") or die(mysqli_error($conn));
-
-  header("Location: nomor-antrian.php?nomor=$next&telp=$telp&loket=$loket");
-  exit;
-}
-?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ambil Antrian</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -62,6 +15,12 @@ if(isset($_POST['take'])){
       href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
     />
     <style>
+      :root {
+        --primary: #e88ca0;
+        --secondary: #f3cfd6;
+        --hover-1: #97102d;
+        --text: #ffffff;
+      }
       body {
         margin: 0;
         font-family: "Poppins";
@@ -77,7 +36,7 @@ if(isset($_POST['take'])){
         flex-direction: column;
         width: 250px;
         padding: 20px;
-        background-color: #f3cfd6;
+        background-color: var(--secondary);
         position: relative;
         gap: 15;
       }
@@ -96,18 +55,18 @@ if(isset($_POST['take'])){
         justify-content: center;
         align-items: center;
         gap: 10px;
-        background-color: #e88ca0;
+        background-color: var(--primary);
         padding: 15px;
         margin: 15px;
         position: relative;
-        color: white;
+        color: var(--text);
         cursor: pointer;
         transition: 0.3s;
         border-radius: 10px;
       }
       a {
         text-decoration: none;
-        color: white;
+        color: var(--text);
       }
 
       /* main */
@@ -123,14 +82,14 @@ if(isset($_POST['take'])){
         width: 80%;
         margin: 30px auto;
         padding: 20px;
-        background-color: #e88ca0;
+        background-color: var(--primary);
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       }
       .form h2 {
         text-align: center;
         margin-bottom: 25px;
-        color: aliceblue;
+        color: var(--text);
       }
       .form label {
         display: block;
@@ -151,31 +110,52 @@ if(isset($_POST['take'])){
       }
       .form input:focus,
       .form select:focus {
-        border-color: #e88ca0;
+        border-color: var(--primary);
         box-shadow: 0 0 5px rgba(232, 140, 160, 0.5);
       }
       .form button {
         width: 30%;
         padding: 12px;
         justify-content: center;
-        background-color: #e88ca0;
+        background-color: var(--primary);
         border: none;
         border-radius: 10px;
-        color: white;
+        color: var(--text);
         font-weight: 600;
         cursor: pointer;
         transition: 0.3s;
       }
+      /* footer */
+      .footer {
+        background-color: var(--primary);
+        padding: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 30px;
+        position: static;
+        bottom: 0;
+        width: 100%;
+      }
+      .footer div {
+        display: flex;
+        align-items: center;
+      }
+      .copyright {
+        font-size: 14px;
+        color: var(--text);
+      }
       /* hover effect */
       .icon:hover {
-        background-color: #97102d;
+        background-color: var(--hover-1);
       }
       .form button:hover {
-        background-color: #d96f86;
+        background-color: var(--hover-1);
       }
     </style>
   </head>
   <body>
+    <div class="container">
       <!-- sidebar -->
       <div class="sidebar">
         <img src="img/vectorlogo.png" class="logo" />
@@ -183,7 +163,7 @@ if(isset($_POST['take'])){
         <div class="menu">
           <div class="icon">
             <i class="hgi hgi-stroke hgi-user"></i>
-            <a href="index.php">Ambil Antrian</a>
+            <a href="index.html">Ambil Antrian</a>
           </div>
           <div class="icon">
             <i class="hgi hgi-stroke hgi-list-view"></i>
@@ -201,9 +181,9 @@ if(isset($_POST['take'])){
         <!-- Form -->
         <div class="form">
           <h2>Ambil Antrian</h2>
-          <form method="POST">
+          <form method="post">
             <label>Nomor Telepon</label>
-            <input type="text" name="telp" placeholder="Masukkan Nomor Telepon" />
+            <input type="text" placeholder="Masukkan Nomor Telepon" />
 
             <label>Loket</label>
             <select name="loket" id="">
@@ -213,10 +193,14 @@ if(isset($_POST['take'])){
               <option>Skin Booster</option>
             </select>
 
-            <button type="submit" name="take">Ambil Antrian</button>
+            <button type="submit">Ambil Antrian</button>
           </form>
         </div>
       </div>
     </div>
+    <!-- footer -->
+    <footer class="footer">
+      <p class="copyright">&copy;Copyright 2026</p>
+    </footer>
   </body>
 </html>

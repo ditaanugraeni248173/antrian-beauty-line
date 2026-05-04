@@ -76,6 +76,27 @@ $loket = $_GET['loket'] ?? '-';
         background-repeat: repeat;
         background-size: 100vh;
       }
+
+      /* footer */
+      .footer{
+        background-color: var(--primary);
+        padding: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 30px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+      .footer div{
+        display: flex;
+        align-items: center;
+      }
+      .copyright{
+        font-size: 14px;
+        color: var(--text);
+      }
       /* hover effect */
       .bttn:hover {
         background-color: #d96f86;
@@ -138,5 +159,9 @@ $loket = $_GET['loket'] ?? '-';
         <button class="bttn">ambil antrian baru</button>
       </div>
     </div>
+    <!-- footer -->
+    <footer class="footer">
+      <p class="copyright">&copy;Copyright 2026</p>
+    </footer>
   </body>
 </html>
