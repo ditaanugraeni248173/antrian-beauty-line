@@ -81,7 +81,7 @@ a {
   font-size: 14px;
 }
 .form input,
-select {
+.form select {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -90,6 +90,7 @@ select {
   font-family: "Poppins";
   outline: none;
   transition: 0.3s;
+  box-sizing: border-box;
 }
 .form input:focus,
 .form select:focus {

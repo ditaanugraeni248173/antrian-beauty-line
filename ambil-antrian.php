@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 
-// query untuk mengambil data dari user dengan email = $_POST['input_email']
 $query = "SELECT * FROM services";
 
 $result = $conn->query($query);
