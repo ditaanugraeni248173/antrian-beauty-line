@@ -1,0 +1,173 @@
+:root {
+  --primary: #e88ca0;
+  --secondary: #f3cfd6;
+  --accent: #f7a3b5;
+  --hover-1: #97102d;
+  --bg: #fff4f4;
+  --text: #ffffff;
+}
+body {
+  margin: 0;
+  font-family: "Poppins";
+}
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 20px;
+  background-color: var(--secondary);
+  position: relative;
+  gap: 15;
+}
+.logo {
+  width: 150px;
+  margin: 20px;
+}
+.sidebar-decor {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+}
+
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex: 1;
+  font-family: "poppins";
+  background-image: url("img/Group91.png");
+  background-repeat: repeat;
+  background-size: 100vh;
+  padding: 2rem;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+/* card */
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ad1457;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* ===== CARD ===== */
+
+.card {
+  background: #f8bbd0;
+  border-radius: 20px;
+  padding: 28px 36px 32px;
+  width: 360px;
+  position: relative;
+  margin: 0 14px;
+}
+
+/* Notch cutouts kiri & kanan */
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: var(--bg); /* sama dengan background body */
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card::before {
+  left: -14px;
+}
+.card::after {
+  right: -14px;
+}
+
+/* Judul dalam card */
+.card h1 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ad1457;
+  margin-bottom: 24px;
+}
+
+/* ===== INFO ROWS ===== */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.row span:first-child {
+  color: #ad1457;
+  font-weight: 500;
+  min-width: 130px;
+}
+
+.row span:nth-child(2) {
+  color: #ad1457;
+  font-weight: 500;
+}
+
+.row span:last-child {
+  color: #880e4f;
+  font-weight: 500;
+}
+
+/* ===== QUEUE NUMBER ===== */
+.queue-number {
+  text-align: center;
+  font-size: 64px;
+  font-weight: 700;
+  color: #ad1457;
+  letter-spacing: 4px;
+  line-height: 1;
+  border-top: 1.5px dashed #f48fb1;
+  padding-top: 16px;
+}
+
+/* button */
+.btn {
+  display: flex;
+  justify-content: center;
+}
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* hover effect */
+.btn-blue:hover {
+  background-color: var(--hover-1);
+}
+.btn button:hover {
+  background-color: var(--hover-1);
+}

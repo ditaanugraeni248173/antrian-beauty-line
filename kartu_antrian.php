@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,33 +19,34 @@
   </head>
   <body>
     <div class="container">
-      <!-- sidebar -->
+        <!-- sidebar -->
       <div class="sidebar">
         <img src="img/vectorlogo.png" class="logo" />
         <img src="img/sidebar.png" class="sidebar-decor" />
         <div class="menu">
           <div class="icon">
-            <i class="hgi hgi-stroke hgi-user"></i>
-            <a href="ambil-antrian.html">Ambil Antrian</a>
+          <button
+            class="btn-blue"
+            onclick="location.href = 'ambil-antrian.php'">
+            <i class="hgi hgi-stroke hgi-user"></i>Daftar Antrian
+          </button>
           </div>
           <div class="icon">
-            <i class="hgi hgi-stroke hgi-list-view"></i>
-            <a href="kartu_antrian.html">Daftar Antrian</a>
+           <button
+            class="btn-blue"
+            onclick="location.href = 'daftar_antri.html'">
+            <i class="hgi hgi-stroke hgi-list-view"></i>Daftar Antrian
+          </button>
           </div>
           <div class="icon">
-            <i class="hgi hgi-stroke hgi-ticket-01"></i>
-            <a href="daftar_antri.html">Kartu Antrian</a>
+            <button 
+            class="btn-blue"
+            onclick="location.href = 'kartu_antrian.php'"> <i class="hgi hgi-stroke hgi-ticket-01"></i>
+            Daftar Antrian
+          </button>
           </div>
         </div>
       </div>
-    <div class="container">
-        <div class="card">
-            
-        </div>
-    </div>
-    <!-- footer -->
-    <footer class="footer">
-      <p class="copyright">&copy;Copyright 2026</p>
-    </footer>
+    
   </body>
 </html>

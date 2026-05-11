@@ -3,6 +3,7 @@
   --secondary: #f3cfd6;
   --accent: #f7a3b5;
   --hover-1: #97102d;
+  --bg: #fff4f4;
   --text: #ffffff;
 }
 body {
@@ -27,30 +28,13 @@ body {
 .logo {
   width: 150px;
   margin: 20px;
+  justify-content: center;
 }
 .sidebar-decor {
   position: absolute;
   right: 0;
   bottom: 0;
   width: 70%;
-}
-.icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: var(--primary);
-  padding: 15px;
-  margin: 15px;
-  position: relative;
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 10px;
-}
-a {
-  text-decoration: none;
-  color: var(--text);
 }
 
 /* main */
@@ -60,6 +44,7 @@ a {
   background-image: url("img/Group91.png");
   background-repeat: repeat;
   background-size: 100vh;
+  background-color: var(--bg);
 }
 /* form */
 .form {
@@ -98,40 +83,27 @@ a {
   border-color: var(--primary);
   box-shadow: 0 0 5px rgba(232, 140, 160, 0.5);
 }
-.form button {
-  width: 30%;
-  padding: 12px;
+
+.btn-blue {
+  display: flex;
   justify-content: center;
+}
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
   background-color: var(--accent);
   border: none;
   border-radius: 10px;
+  text-align: center;
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
-/* footer */
-.footer {
-  background-color: var(--primary);
-  padding: 12px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 30px;
-  position: static;
-  bottom: 0;
-  width: 100%;
-}
-.footer div {
-  display: flex;
-  align-items: center;
-}
-.copyright {
-  font-size: 14px;
-  color: var(--text);
-}
+
 /* hover effect */
-.icon:hover {
+.btn-blue:hover {
   background-color: var(--hover-1);
 }
 .form button:hover {

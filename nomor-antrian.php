@@ -14,11 +14,11 @@
       rel="stylesheet"
       href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
   </head>
   <body>
     <div class="container">
-            <!-- sidebar -->
+      <!-- sidebar -->
       <div class="sidebar">
         <img src="img/vectorlogo.png" class="logo" />
         <img src="img/sidebar.png" class="sidebar-decor" />
@@ -47,5 +47,37 @@
         </div>
       </div>
 
+    <!-- main -->
+    <div class="main">
+      <h1 class="title">Kartu Antrian</h1>
+      
+      <div class="card">
+        
+        <h1>Nomor Antrian</h1>
+        <div class="info">
+          <div class="row">
+            <span>Nomor Telepon</span>
+            <span>:</span>
+            <span>081234567890</span>
+          </div>
+
+          <div class="row">
+            <span>Loket</span>
+            <span>:</span>
+            <span>Facial Treatment</span>
+          </div>
+        </div>
+
+        <div class="queue-number">002</div>
+      </div>
+
+      <!-- button -->
+      <div class="btn">
+        <button>Ambil Antrian Baru</button>
+      </div>
+      
+    </div>
+   
+    
   </body>
 </html>
