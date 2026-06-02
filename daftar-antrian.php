@@ -75,7 +75,7 @@ while ($row = $result->fetch_assoc()) {
         text-align: center;
       }
 
-      /* Wrapper: agar semua kolom layanan berjejer horizontal */
+      /* agar semua kolom layanan berjejer horizontal */
       .all-services {
         display: flex;
         flex-direction: row;
@@ -86,7 +86,7 @@ while ($row = $result->fetch_assoc()) {
         flex-wrap: wrap;
       }
 
-      /* kolom per layanan */
+      /* kolom perlayanan */
       .service-group {
         display: flex;
         flex-direction: column;
@@ -96,7 +96,7 @@ while ($row = $result->fetch_assoc()) {
         max-width: 220px;
       }
 
-      /* Header nama layanan */
+      /* nama layanan */
       .service-header {
         background-color: #9c5162;
         color: #fff;
@@ -109,7 +109,7 @@ while ($row = $result->fetch_assoc()) {
         box-sizing: border-box;
       }
 
-      /* Kartu tiap antrian */
+      /* kartu antrian */
       .mini-ticket {
         width: 100%;
         background: 
@@ -123,8 +123,9 @@ while ($row = $result->fetch_assoc()) {
         align-items: center;
         gap: 6px;
         color: #9c5162;
-        filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.10));
         text-align: center;
+        transition: transform 0.2s ease, filter 0.2s ease;
+        cursor: pointer;
       }
 
       .ticket-label {
@@ -147,7 +148,7 @@ while ($row = $result->fetch_assoc()) {
         opacity: 0.75;
       }
 
-      .empty-msg {
+      .empty {
         color: #b07080;
         font-size: 15px;
         font-weight: 500;
@@ -157,6 +158,10 @@ while ($row = $result->fetch_assoc()) {
       /* hover */
       .service-header:hover{
         background-color: var(--hover-1);
+      }
+      .mini-ticket:hover {
+        transform: translateY(-5px);
+        filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.3));
       }
     </style>
   </head>
@@ -189,7 +194,7 @@ while ($row = $result->fetch_assoc()) {
         <h1 class="page-title">Daftar Antrian</h1>
 
         <?php if (empty($grouped)): ?>
-          <p class="empty-msg">Belum ada antrian hari ini.</p>
+          <p class="empty">Belum ada antrian hari ini.</p>
         <?php else: ?>
           <div class="all-services">
             <?php foreach ($grouped as $nama_layanan => $antrian_list): ?>

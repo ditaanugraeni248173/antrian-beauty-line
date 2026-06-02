@@ -2,7 +2,7 @@
 session_start();
 include "config.php";
 
-// Validasi input
+// cek input kosong
 if (empty($_POST['no_telp']) || empty($_POST['layanan'])) {
     header("Location: ambil-antrian.php?error=Data+tidak+lengkap");
     exit;
@@ -11,51 +11,51 @@ if (empty($_POST['no_telp']) || empty($_POST['layanan'])) {
 $no_telp    = trim($_POST['no_telp']);
 $layanan_id = (int) $_POST['layanan'];
 
-// Ambil nama layanan dari DB
-$stmt = $conn->prepare("SELECT name FROM services WHERE id = ?");
-$stmt->bind_param("i", $layanan_id);
-$stmt->execute();
-$res = $stmt->get_result();
-$service = $res->fetch_assoc();
-$stmt->close();
+// cari nama layanan
+$cari_layanan = $conn->prepare("SELECT name FROM services WHERE id = ?");
+$cari_layanan->bind_param("i", $layanan_id);
+$cari_layanan->execute();
+$result = $cari_layanan->get_result();
+$data_layanan  = $result->fetch_assoc();
+$cari_layanan->close();
 
-if (!$service) {
+if (!$data_layanan) {
     header("Location: ambil-antrian.php?error=Layanan+tidak+ditemukan");
     exit;
 }
-$layanan_nama = $service['name'];
+$nama_layanan = $data_layanan['name'];
 
-// Hitung nomor antrian berikutnya untuk layanan ini hari ini
-$stmt2 = $conn->prepare("SELECT COUNT(*) as total FROM queues WHERE service_id = ? AND DATE(appointment_date) = CURDATE()");
-$stmt2->bind_param("i", $layanan_id);
-$stmt2->execute();
-$res2 = $stmt2->get_result();
-$count = $res2->fetch_assoc();
-$stmt2->close();
-$nomor_antrian = $count['total'] + 1;
+// hitung antrian hari ini di layanan yang sama
+$hitung_antrian = $conn->prepare("SELECT COUNT(*) as total FROM queues WHERE service_id = ? AND DATE(appointment_date) = CURDATE()");
+$hitung_antrian->bind_param("i", $layanan_id);
+$hitung_antrian->execute();
+$hasil_hitung   = $hitung_antrian->get_result();
+$jumlah_antrian = $hasil_hitung->fetch_assoc();
+$hitung_antrian->close();
+$nomor_antrian = $jumlah_antrian['total'] + 1;
 
-// Insert antrian baru
-$stmt3 = $conn->prepare("INSERT INTO queues (service_id, visitor_phone, queue_number, appointment_date) VALUES (?, ?, ?, CURDATE())");
-$stmt3->bind_param("isi", $layanan_id, $no_telp, $nomor_antrian);
-$stmt3->execute();
-$stmt3->close();
+// simpan antrian ke db
+$simpan_antrian = $conn->prepare("INSERT INTO queues (service_id, visitor_phone, queue_number, appointment_date) VALUES (?, ?, ?, CURDATE())");
+$simpan_antrian->bind_param("isi", $layanan_id, $no_telp, $nomor_antrian);
+$simpan_antrian->execute();
+$simpan_antrian->close();
 
-// Tambahkan antrian baru ke dalam list session (bukan replace)
+// masukkan ke session
 if (!isset($_SESSION['daftar_antrian'])) {
     $_SESSION['daftar_antrian'] = [];
 }
 $_SESSION['daftar_antrian'][] = [
     'no'      => $nomor_antrian,
-    'layanan' => $layanan_nama,
+    'layanan' => $nama_layanan,
     'no_telp' => $no_telp
 ];
 
-// Hanya simpan 5 antrian terakhir agar session tidak membengkak
+// membatasi hanya 2 antrian terakhir
 if (count($_SESSION['daftar_antrian']) > 2) {
     array_shift($_SESSION['daftar_antrian']);
 }
 
-// Redirect ke kartu_antrian.php
+// ke halaman kartu
 header("Location: kartu_antrian.php");
 exit;
 ?>

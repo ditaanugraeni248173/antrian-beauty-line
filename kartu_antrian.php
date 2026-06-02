@@ -53,7 +53,7 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         padding: 40px;
         box-sizing: border-box;
         overflow-y: auto;
-        background-image: url("img/Group91.png");
+        background-image: url("img/Group41.png");
         background-repeat: repeat;
         background-size: 100vh;
       }
@@ -66,7 +66,6 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         text-align: center;
       }
 
-      /* Wrapper semua kartu berjejer */
       .tickets-wrapper {
         display: flex;
         flex-direction: row;
@@ -76,7 +75,6 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         width: 100%;
       }
 
-      /* Satu kartu tiket */
       .ticket-wrapper {
         filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.15));
         width: 380px;
@@ -91,6 +89,19 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         color: #9c5162;
         position: relative;
       }
+
+      /* button silang */
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #e88ca0;
+        text-decoration: none;
+        line-height: 1;
+      }
+      .close-btn:hover { color: #9c5162; }
 
       .ticket-title {
         text-align: center;
@@ -119,7 +130,6 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         line-height: 1;
       }
 
-      /* Badge "Terbaru" di kartu pertama */
       .badge-terbaru {
         position: absolute;
         top: 12px;
@@ -133,7 +143,7 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         letter-spacing: 0.5px;
       }
 
-      .empty-msg {
+      .empty {
         color: #b07080;
         font-size: 15px;
         font-weight: 500;
@@ -169,7 +179,7 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         <h1 class="page-title">Kartu Antrian</h1>
 
         <?php if (empty($daftar_antrian)): ?>
-          <p class="empty-msg">Belum ada antrian yang diambil.</p>
+          <p class="empty">Belum ada antrian yang diambil.</p>
         <?php else: ?>
           <div class="tickets-wrapper">
             <?php foreach ($daftar_antrian as $index => $antrian): ?>
@@ -179,6 +189,8 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
                   <?php if ($index === 0): ?>
                     <span class="badge-terbaru">TERBARU</span>
                   <?php endif; ?>
+
+                  <a href="ambil-antrian.php" class="close-btn">&times;</a>
 
                   <h2 class="ticket-title">Nomor Antrian</h2>
 
