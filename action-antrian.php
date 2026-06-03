@@ -2,7 +2,7 @@
 session_start();
 include "config.php";
 
-// cek input kosong
+// input
 if (empty($_POST['no_telp']) || empty($_POST['layanan'])) {
     header("Location: ambil-antrian.php?error=Data+tidak+lengkap");
     exit;
@@ -25,7 +25,7 @@ if (!$data_layanan) {
 }
 $nama_layanan = $data_layanan['name'];
 
-// hitung antrian hari ini di layanan yang sama
+// hitung antrian
 $hitung_antrian = $conn->prepare("SELECT COUNT(*) as total FROM queues WHERE service_id = ? AND DATE(appointment_date) = CURDATE()");
 $hitung_antrian->bind_param("i", $layanan_id);
 $hitung_antrian->execute();
@@ -55,7 +55,6 @@ if (count($_SESSION['daftar_antrian']) > 2) {
     array_shift($_SESSION['daftar_antrian']);
 }
 
-// ke halaman kartu
 header("Location: kartu_antrian.php");
 exit;
 ?>

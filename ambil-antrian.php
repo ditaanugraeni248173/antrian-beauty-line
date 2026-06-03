@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 
-// Ambil data layanan untuk opsi select loket
 $query = "SELECT * FROM services";
 $result = $conn->query($query);
 $row = $result->fetch_all();

@@ -109,30 +109,3 @@ select {
   cursor: pointer;
   transition: 0.3s;
 }
-/* footer */
-.footer {
-  background-color: var(--primary);
-  padding: 12px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 30px;
-  position: static;
-  bottom: 0;
-  width: 100%;
-}
-.footer div {
-  display: flex;
-  align-items: center;
-}
-.copyright {
-  font-size: 14px;
-  color: var(--text);
-}
-/* hover effect */
-.icon:hover {
-  background-color: var(--hover-1);
-}
-.form button:hover {
-  background-color: var(--hover-1);
-}
