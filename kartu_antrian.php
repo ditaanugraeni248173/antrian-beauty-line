@@ -53,9 +53,6 @@ $daftar_antrian = array_reverse($_SESSION['daftar_antrian'] ?? []);
         padding: 40px;
         box-sizing: border-box;
         overflow-y: auto;
-        background-image: url("img/Group41.png");
-        background-repeat: repeat;
-        background-size: 100vh;
       }
 
       .page-title {
