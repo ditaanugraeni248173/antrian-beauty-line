@@ -56,7 +56,7 @@ a {
 .main {
   flex: 1;
   font-family: "poppins";
-  background-image: url("img/Group41.png");
+  background-image: url("img/background.png");
   background-repeat: repeat;
   background-size: 100vh;
 }

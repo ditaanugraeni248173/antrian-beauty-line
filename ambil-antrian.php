@@ -74,7 +74,7 @@ $row = $result->fetch_all();
       
       <div class="sidebar">
         <img src="img/vectorlogo.png" class="logo" />
-        <img src="img/sidebar.png" class="sidebar-decor" />
+        <img src="img/pojok-sidebar.png" class="sidebar-decor" />
         <div class="menu">
           
           <div class="icon active">

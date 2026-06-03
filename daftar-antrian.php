@@ -170,7 +170,7 @@ while ($row = $result->fetch_assoc()) {
 
       <div class="sidebar">
         <img src="img/vectorlogo.png" class="logo" />
-        <img src="img/sidebar.png" class="sidebar-decor" />
+        <img src="img/pojok-sidebar.png" class="sidebar-decor" />
         <div class="menu">
           <div class="icon">
             <a href="ambil-antrian.php">
